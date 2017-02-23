@@ -1,0 +1,3 @@
+#!/bin/bash
+sed -i 's|i++\;|i++\;\nprintf\(\"\\n%i\ ",i\)\;printf\(\"%i\\n\",p\[i\]\)\;|g' $1
+sed -i 's|i--\;|i--\;\nprintf\(\"\\n%i\ ",i\)\;printf\(\"%i\\n\",p\[i\]\)\;|g' $1

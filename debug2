@@ -1,0 +1,8 @@
+#!/bin/bash
+export DEBUG1='printf\(\"\\n\%i \%i\",i,p\[i\]\)\;'
+export DEBUG2='printf\(\" \%i\",p\[i\]\)\;'
+sed -i 's|i++\;|i++\;'"$DEBUG1"'|g' $1
+sed -i 's|i--\;|i--\;'"$DEBUG1"'|g' $1
+sed -i 's|p\[i\]++\;|p\[i\]++\;'"$DEBUG2"'|g' $1
+sed -i 's|p\[i\]--\;|p\[i\]--\;'"$DEBUG2"'|g' $1
+gcc $1.c && ./a.out > log

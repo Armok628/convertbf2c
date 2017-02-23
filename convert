@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ -e $1 ]; then
+./bf2c "`cat $1`" > $1.c && gcc $1.c
+export FILE="$1.c"
+else
+	./bf2c $1 > bf.c && gcc bf.c && export FILE="bf.c"
+fi
+if [ "$2" != "-n" ]; then
+	rm $FILE
+fi
